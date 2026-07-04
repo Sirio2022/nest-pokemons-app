@@ -16,7 +16,7 @@ async function bootstrap() {
     }),
   )
 
-  const port = Number(process.env.PORT || 3001)
+  const port = parseInt(process.env.PORT || '3000', 10)
 
   await app.listen(port, '0.0.0.0')
   console.log(`Application is running on: ${await app.getUrl()}`)
