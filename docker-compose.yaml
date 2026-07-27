@@ -1,6 +1,21 @@
 version: '3.8'
 
 services:
+  # 1. Tu aplicación NestJS
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      # Mapea el puerto del HOST con el puerto del CONTENEDOR (ambos leídos de tu .env)
+      - '${PORT}:${PORT}'
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  # 2. Tu base de datos MongoDB
   db:
     image: mongo:8.3.4
     restart: always

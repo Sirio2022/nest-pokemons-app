@@ -4,7 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { ServeStaticModule } from '@nestjs/serve-static'
 import { join } from 'node:path'
 import { CommonModule } from './common/common.module'
-import { EnvConfig } from './config/app.config'
+import { EnvConfiguration } from './config/env.config'
 import { JoiValidationSchema } from './config/joi.validation'
 import { PokemonModule } from './pokemon/pokemon.module'
 import { SeedModule } from './seed/seed.module'
@@ -12,7 +12,8 @@ import { SeedModule } from './seed/seed.module'
 @Module({
   imports: [
     ConfigModule.forRoot({
-      load: [EnvConfig],
+      isGlobal: true,
+      load: [EnvConfiguration],
       validationSchema: JoiValidationSchema,
     }),
     ServeStaticModule.forRoot({
