@@ -1,0 +1,25 @@
+# Dependencias y construcciones locales
+node_modules
+dist
+coverage
+
+# Archivos de entorno y credenciales
+.env
+.env.*
+!.env.example
+
+# Git e historial
+.git
+.gitignore
+
+# Archivos del sistema y logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+.DS_Store
+
+# Archivos de Docker y documentación
+Dockerfile*
+docker-compose*
+README.md
